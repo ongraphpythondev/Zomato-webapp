@@ -1,0 +1,40 @@
+{% extends 'restaurant/base.html' %} 
+{% block title %} All Restaurants {% endblock %}
+{% block content %}
+
+<div class="container mb-5">
+  <div class="row justify-content-center mt-1">
+    <div class="col-md-12 col-sm-12 p-4">
+      {% csrf_token %}
+      <div class="pt-5">
+        <h2>RESTAURANT</h2>
+        {% if rest.count == 0 %}
+        <p class="small">NO MAIN COURSE FOUND</p>
+        {% endif %} 
+        {% for res in rest %}
+        <a href="{% url 'detail_restaurant' res.id %}" class="row mt-4">
+          <div class="col-md-2 col-sm-12">
+            <img
+              class="rounded"
+              src="{{ res.image.url }}"
+              width="150"
+              height="100"
+            />
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <div class="d-flex flex-row">
+              <div class="form-group form-check">
+                <label class="form-check-label">{{ res.name }}</label>
+              </div>
+            </div>
+            <p>{{ res.description }}</p>
+          </div>
+        </a>
+        <hr />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
