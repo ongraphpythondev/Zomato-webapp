@@ -28,4 +28,3 @@ To run the server
 - It shows  various food options in nearby food outlets. 
 - Can select Quantity, select category of food item you wanna eat.
 - Also Integrated Paypal Gateway for payment of food
-- Added the button to play topmost Video from the list
